@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Appointments - DocType</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+<a class="logo" href="index.html"><b>+</b> Doc<span>Type</span></a>
+<nav>
+<a href="index.html">Home</a><a href="doctors.html">Doctors</a>
+<a href="index.html#how-it-works">How It Works</a><a class="active" href="appointments.html">My Appointments</a>
+</nav>
+<div class="navBtns"><a href="doctor-login.html">Doctor Login</a><a class="btn" href="index.html#search">Find a Doctor</a></div>
+</header>
+
+<main>
+<section class="simple">
+<small class="eyebrow">PATIENT DASHBOARD</small>
+<h1>My Appointments</h1>
+<p>Manage your booked appointments and payment status.</p>
+<div id="appointments" class="appointmentList"></div>
+<a class="btn" href="index.html#search">Book a new appointment →</a>
+</section>
+</main>
+
+<div id="cancelModal" class="modal hidden">
+<div class="modalCard">
+<button id="closeCancel" class="modalClose" type="button">×</button>
+<div class="cancelIcon">⚠️</div>
+<h2>Cancel appointment?</h2>
+<p>Are you sure you want to cancel this appointment?</p>
+<div class="twoButtons">
+<button id="keepAppointment" class="outline" type="button">Keep Appointment</button>
+<button id="confirmCancel" class="danger" type="button">Yes, Cancel</button>
+</div>
+<p id="cancelMsg" class="msg"></p>
+</div>
+</div>
+
+<footer><div class="copyright">© 2026 DocType. College Mini Project.</div></footer>
+<script src="script.js"></script>
+</body>
+</html>

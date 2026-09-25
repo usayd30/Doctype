@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doctor Dashboard - DocType</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="doctorPortal">
+<header class="doctorNav">
+  <a class="logo" href="index.html"><b>+</b> Doc<span>Type</span></a>
+  <div class="doctorNavTitle">Doctor Portal</div>
+  <div class="doctorNavRight">
+    <span id="todayTop"></span>
+    <button class="iconBtn" id="notifBtn" title="Notifications">🔔<i id="notifDot"></i></button>
+    <div class="doctorMini" id="doctorMini"></div>
+    <button class="outline" id="logout">Logout</button>
+  </div>
+</header>
+
+<div class="doctorLayout">
+<aside class="doctorSidebar">
+  <div class="sideProfile" id="sideProfile"></div>
+  <button class="sideLink active" data-tab="overview">▦ <span>Overview</span></button>
+  <button class="sideLink" data-tab="appointments">◷ <span>Appointments</span><b id="sideApptCount">0</b></button>
+  <button class="sideLink" data-tab="patients">♙ <span>Patients</span></button>
+  <button class="sideLink" data-tab="schedule">◫ <span>Schedule & Availability</span></button>
+  <button class="sideLink" data-tab="earnings">₹ <span>Earnings</span></button>
+  <button class="sideLink" data-tab="profile">◉ <span>My Profile</span></button>
+  <button class="sideLink" data-tab="settings">⚙ <span>Settings</span></button>
+  <div class="sideHelp"><b>Need help?</b><p>Manage your appointments and profile from one place.</p><a href="support.html">Contact support →</a></div>
+</aside>
+
+<main class="doctorMain">
+  <div id="dashNotice" class="dashNotice hidden"></div>
+
+  <!-- OVERVIEW -->
+  <section class="dashTab active" id="tab-overview">
+    <div class="dashWelcome">
+      <div><small class="eyebrow">DOCTOR DASHBOARD</small><h1 id="welcome">Good morning</h1><p>Here’s what is happening with your practice today.</p></div>
+      <button class="btn" data-go="appointments">View today's appointments →</button>
+    </div>
+
+    <div class="metricGrid">
+      <div class="metric"><span>Today's appointments</span><strong id="mToday">0</strong><small id="mTodaySub">No appointments scheduled</small></div>
+      <div class="metric"><span>Waiting / active</span><strong id="mWaiting">0</strong><small>Patients currently in queue</small></div>
+      <div class="metric"><span>Upcoming</span><strong id="mUpcoming">0</strong><small>Confirmed future appointments</small></div>
+      <div class="metric"><span>Today's earnings</span><strong id="mEarnings">₹0</strong><small>Paid confirmed appointments</small></div>
+    </div>
+
+    <div class="dashColumns">
+      <div class="dashPanel">
+        <div class="panelHead"><div><h2>Today's schedule</h2><p id="todayLabel"></p></div><button class="outline small" data-go="schedule">Manage availability</button></div>
+        <div id="todaySchedule" class="scheduleList"></div>
+      </div>
+      <div class="dashPanel">
+        <div class="panelHead"><div><h2>Quick actions</h2><p>Common tasks</p></div></div>
+        <div class="quickGrid">
+          <button data-go="appointments">📅<b>Appointments</b><small>View & manage</small></button>
+          <button data-go="patients">👥<b>Patients</b><small>View patient list</small></button>
+          <button data-go="schedule">🕐<b>Availability</b><small>Set working hours</small></button>
+          <button data-go="profile">👤<b>Edit profile</b><small>Update public details</small></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashPanel">
+      <div class="panelHead"><div><h2>Upcoming appointments</h2><p>Your next confirmed bookings</p></div><button class="outline small" data-go="appointments">View all</button></div>
+      <div id="upcomingList" class="compactList"></div>
+    </div>
+  </section>
+
+  <!-- APPOINTMENTS -->
+  <section class="dashTab" id="tab-appointments">
+    <div class="dashWelcome"><div><small class="eyebrow">APPOINTMENT MANAGEMENT</small><h1>Appointments</h1><p>Check patients in, start consultations and complete visits.</p></div></div>
+    <div class="appointmentToolbar">
+      <button class="filterChip active" data-appt-filter="today">Today</button>
+      <button class="filterChip" data-appt-filter="upcoming">Upcoming</button>
+      <button class="filterChip" data-appt-filter="all">All</button>
+      <button class="filterChip" data-appt-filter="cancelled">Cancelled</button>
+    </div>
+    <div class="dashPanel"><div id="doctorAppointments" class="doctorApptList"></div></div>
+  </section>
+
+  <!-- PATIENTS -->
+  <section class="dashTab" id="tab-patients">
+    <div class="dashWelcome"><div><small class="eyebrow">PATIENT MANAGEMENT</small><h1>Patients</h1><p>Patients who have booked appointments with you.</p></div></div>
+    <div class="dashPanel"><div class="patientSearch"><input id="patientSearch" placeholder="Search patient by name or phone..."></div><div id="patientList" class="patientGrid"></div></div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="dashTab" id="tab-schedule">
+    <div class="dashWelcome"><div><small class="eyebrow">SCHEDULE & AVAILABILITY</small><h1>Your availability</h1><p>Set the hours during which patients can book you.</p></div><button class="btn" id="saveSchedule">Save availability</button></div>
+    <div class="dashPanel">
+      <div class="availabilityNote">Patients will only see the time slots configured below. This demo stores your settings in this browser.</div>
+      <div id="availabilityGrid" class="availabilityGrid"></div>
+    </div>
+  </section>
+
+  <!-- EARNINGS -->
+  <section class="dashTab" id="tab-earnings">
+    <div class="dashWelcome"><div><small class="eyebrow">PAYMENTS & EARNINGS</small><h1>Earnings</h1><p>Track consultation payments received through DocType.</p></div></div>
+    <div class="metricGrid three"><div class="metric"><span>Total paid</span><strong id="eTotal">₹0</strong></div><div class="metric"><span>This month</span><strong id="eMonth">₹0</strong></div><div class="metric"><span>Paid visits</span><strong id="eVisits">0</strong></div></div>
+    <div class="dashPanel"><div class="panelHead"><div><h2>Payment history</h2><p>Confirmed appointments with successful payment</p></div></div><div id="paymentHistory" class="compactList"></div></div>
+  </section>
+
+  <!-- PROFILE -->
+  <section class="dashTab" id="tab-profile">
+    <div class="dashWelcome"><div><small class="eyebrow">PUBLIC PROFILE</small><h1>My profile</h1><p>This information is shown to patients before they book.</p></div><a class="outline" id="publicProfile" href="#">View public profile</a></div>
+    <form id="profileForm" class="dashPanel profileEdit">
+      <div class="profileEditTop"><div class="profileAvatar" id="profileAvatar">👨‍⚕️</div><div><h2 id="profileName">Doctor</h2><p>Update the information patients see.</p></div></div>
+      <div class="editGrid">
+        <label>Doctor name<input id="editName" required></label>
+        <label>Specialty<select id="editSpecialty" required><option>General Physician</option><option>Cardiologist</option><option>Dentist</option><option>Dermatologist</option><option>Orthopedic</option><option>Pediatrician</option><option>Ophthalmologist</option><option>Gynecologist</option></select></label>
+        <label>City<input id="editCity" required></label>
+        <label>Experience<input id="editExperience" required></label>
+        <label>Consultation fee (₹)<input id="editFee" type="number" required></label>
+        <label>Phone<input id="editPhone" maxlength="10" required></label>
+        <label class="wide">About<input id="editAbout"></label>
+      </div>
+      <button class="btn" type="submit">Save profile</button><p id="profileMsg" class="msg"></p>
+    </form>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="dashTab" id="tab-settings">
+    <div class="dashWelcome"><div><small class="eyebrow">ACCOUNT SETTINGS</small><h1>Settings</h1><p>Manage basic doctor account preferences.</p></div></div>
+    <div class="settingsGrid">
+      <div class="dashPanel settingCard"><span>🔔</span><h3>Appointment notifications</h3><p>Show new booking and cancellation alerts in your dashboard.</p><label class="switch"><input id="notifyToggle" type="checkbox" checked><span></span></label></div>
+      <div class="dashPanel settingCard"><span>📱</span><h3>Online consultation</h3><p>Demo option for marking yourself available for online consultations.</p><label class="switch"><input id="onlineToggle" type="checkbox"><span></span></label></div>
+      <div class="dashPanel settingCard"><span>🔐</span><h3>Account security</h3><p>Email: <b id="settingsEmail"></b></p><p>Password is stored locally for this college demo.</p></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

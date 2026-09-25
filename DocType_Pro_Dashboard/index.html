@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DocType - Find & Book Doctors</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+<a class="logo" href="index.html"><b>+</b> Doc<span>Type</span></a>
+<nav>
+<a class="active" href="index.html">Home</a><a href="#specialties">Specialties</a><a href="doctors.html">Doctors</a><a href="#how-it-works">How It Works</a><a href="appointments.html">My Appointments</a>
+</nav>
+<div class="navBtns"><a href="join-doctor.html">Join as a Doctor</a><a class="btn" href="#search">Find a Doctor</a></div>
+</header>
+
+<main>
+<section class="hero" id="search">
+<div>
+<small class="eyebrow">SIMPLE • FAST • TRUSTED</small>
+<h1>Find the right doctor.<br><span>Book with confidence.</span></h1>
+<p>Search doctors by specialty and city, compare profiles, and book an appointment in a few simple steps.</p>
+<form id="searchForm" class="searchBox">
+<label>Specialty<select id="specialty" required><option value="">Select specialty</option>
+<option>General Physician</option><option>Cardiologist</option><option>Dentist</option><option>Dermatologist</option><option>Orthopedic</option><option>Pediatrician</option><option>Ophthalmologist</option><option>Gynecologist</option></select></label>
+<label>City<select id="city" required><option value="">Select city</option>
+<option>Kanpur</option><option>Lucknow</option><option>Delhi</option><option>Jaipur</option><option>Mumbai</option></select></label>
+<button class="btn" type="submit">Search Doctors →</button>
+</form>
+<p id="searchMsg" class="msg"></p>
+<div class="trust">✓ Verified profiles &nbsp;&nbsp; ⚡ Easy booking &nbsp;&nbsp; 🔒 Simple & secure</div>
+</div>
+<div class="heroCard"><div><b>DocType</b><span>● Available</span></div><div class="avatar big">👨‍⚕️</div><h2>Find care near you</h2><p>Choose a specialty and city to discover doctors.</p><div class="mini"><b>500+<small>Doctors</small></b><b>20+<small>Specialties</small></b><b>10+<small>Cities</small></b></div></div>
+</section>
+
+<section class="stats"><b>500+<small>Doctors</small></b><b>20+<small>Specialties</small></b><b>10+<small>Cities</small></b><b>24/7<small>Easy Booking</small></b></section>
+
+<section class="section" id="specialties">
+<div class="sectionHead"><div><small class="eyebrow">EXPLORE</small><h2>Find doctors by specialty</h2><p>Choose a specialty to explore available healthcare professionals.</p></div><a class="outline" href="doctors.html">View all doctors →</a></div>
+<div class="specialties">
+<button data-specialty="General Physician">🩺<b>General Physician</b><small>Common health problems</small></button>
+<button data-specialty="Cardiologist">❤️<b>Cardiologist</b><small>Heart & blood vessels</small></button>
+<button data-specialty="Dentist">🦷<b>Dentist</b><small>Teeth & oral health</small></button>
+<button data-specialty="Dermatologist">✨<b>Dermatologist</b><small>Skin & hair</small></button>
+<button data-specialty="Orthopedic">🦴<b>Orthopedic</b><small>Bones & joints</small></button>
+<button data-specialty="Pediatrician">👶<b>Pediatrician</b><small>Children's health</small></button>
+<button data-specialty="Ophthalmologist">👁️<b>Ophthalmologist</b><small>Eye care</small></button>
+<button data-specialty="Gynecologist">🌸<b>Gynecologist</b><small>Women's health</small></button>
+</div>
+</section>
+
+<section class="section white" id="how-it-works"><div class="center"><small class="eyebrow">SIMPLE PROCESS</small><h2>How DocType works</h2><p>Finding and booking a doctor shouldn't be complicated.</p></div>
+<div class="steps"><article><i>01</i><strong>🔎</strong><h3>Search</h3><p>Select specialty and city, then click Search Doctors.</p></article><article><i>02</i><strong>👨‍⚕️</strong><h3>Compare</h3><p>View experience, ratings, fees and availability.</p></article><article><i>03</i><strong>📅</strong><h3>Book</h3><p>Choose a convenient date and time.</p></article></div></section>
+
+<section class="doctorCTA"><div><small>FOR DOCTORS</small><h2>Make your clinic easier to find.</h2><p>Join DocType and make appointment management simpler.</p></div><a class="whiteBtn" href="join-doctor.html">Join as a Doctor →</a></section>
+</main>
+
+<footer><div class="foot"><div><a class="logo" href="index.html"><b>+</b> Doc<span>Type</span></a><p>Making healthcare discovery and appointment booking simpler.</p></div><div><h4>Platform</h4><a href="index.html">Home</a><a href="doctors.html">Find Doctors</a><a href="#specialties">Specialties</a><a href="#how-it-works">How It Works</a></div><div><h4>For Doctors</h4><a href="join-doctor.html">Join DocType</a><a href="doctor-login.html">Doctor Login</a></div><div><h4>Support</h4><a href="support.html">Help Center</a><a href="support.html#contact">Contact Us</a><a href="support.html#privacy">Privacy</a></div></div><div class="copyright">© 2026 DocType. College Mini Project.</div></footer>
+<script src="script.js"></script>
+</body></html>
