@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doctor Dashboard - DocType</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="nav"><a class="logo" href="index.html"><b>+</b> Doc<span>Type</span></a>
+<nav><a href="index.html">Home</a><a href="doctors.html">Doctors</a><a href="appointments.html">My Appointments</a></nav>
+<div class="navBtns"><button class="outline" id="logout">Logout</button></div></header>
+<main><section class="simple"><small class="eyebrow">DOCTOR DASHBOARD</small><h1 id="welcome">Welcome</h1>
+<div id="dashboardCard" class="profileCard"></div></section></main>
+<script>
+const docs=JSON.parse(localStorage.getItem("doctypeDoctors")||"[]");
+const session=JSON.parse(localStorage.getItem("doctypeDoctorSession")||"null");
+const d=session&&docs.find(x=>x.id===session.id);
+if(!d){location.href="doctor-login.html"}else{
+ document.getElementById("welcome").textContent="Welcome, "+d.name;
+ document.getElementById("dashboardCard").innerHTML="<h2>Your DocType profile</h2><p><b>"+d.specialty+"</b> • "+d.city+"</p><p>Consultation fee: ₹"+d.fee+"</p><p>Email: "+d.email+"</p><a class='btn' href='doctor-profile.html?id="+d.id+"'>View Public Profile</a>";
+}
+document.getElementById("logout").onclick=()=>{localStorage.removeItem("doctypeDoctorSession");location.href="doctor-login.html"};
+</script></body></html>

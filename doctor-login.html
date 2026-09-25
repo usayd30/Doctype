@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doctor Login - DocType</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+<a class="logo" href="index.html"><b>+</b> Doc<span>Type</span></a>
+<nav>
+<a href="index.html">Home</a><a href="doctors.html">Doctors</a>
+<a href="index.html#how-it-works">How It Works</a><a href="appointments.html">My Appointments</a>
+</nav>
+<div class="navBtns">
+<a href="join-doctor.html">Join as a Doctor</a>
+<a class="btn" href="index.html#search">Find a Doctor</a>
+</div>
+</header>
+
+<main>
+<section class="login">
+<div class="formCard">
+<div class="logoMark">+</div>
+<small class="eyebrow">DOCTOR PORTAL</small>
+<h1>Doctor Login</h1>
+<p>Login to manage your DocType doctor profile.</p>
+
+<form id="doctorLoginForm">
+<label>Email
+<input id="loginEmail" type="email" required placeholder="doctor@example.com">
+</label>
+
+<label>Password
+<input id="loginPassword" type="password" required placeholder="Your password">
+</label>
+
+<button class="btn full" type="submit">Login</button>
+<p id="loginMsg" class="msg"></p>
+</form>
+
+<small>Don't have a profile? <a href="join-doctor.html">Join as a Doctor</a></small>
+</div>
+</section>
+</main>
+
+<footer><div class="copyright">© 2026 DocType. College Mini Project.</div></footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book Appointment - DocType</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+<a class="logo" href="index.html"><b>+</b> Doc<span>Type</span></a>
+<nav>
+<a href="index.html">Home</a><a href="doctors.html">Doctors</a>
+<a href="index.html#how-it-works">How It Works</a><a href="appointments.html">My Appointments</a>
+</nav>
+<div class="navBtns"><a class="btn" href="index.html#search">Find a Doctor</a></div>
+</header>
+
+<main>
+<section class="booking">
+<div id="bookingDoctor"></div>
+
+<form id="bookingForm" class="formCard">
+<h2>Book your appointment</h2>
+
+<label>Your name
+<input id="patient" required placeholder="Patient name">
+</label>
+
+<label>Phone number
+<input id="phone" required type="tel" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number">
+</label>
+
+<label>Date
+<input id="date" required type="date">
+</label>
+
+<h3>Select a time</h3>
+<div id="times" class="times"></div>
+<input id="time" required type="hidden">
+
+<div class="paymentBox">
+<h3>Payment</h3>
+<div class="paymentSummary">
+<span>Consultation fee</span><strong id="paymentFee">₹0</strong>
+</div>
+<label class="paymentOption">
+<input type="radio" name="paymentMethod" value="UPI" checked>
+<span>📱 UPI</span>
+</label>
+<label class="paymentOption">
+<input type="radio" name="paymentMethod" value="Card">
+<span>💳 Debit / Credit Card</span>
+</label>
+<label class="paymentOption">
+<input type="radio" name="paymentMethod" value="Demo">
+<span>🧪 Demo Payment (College Project)</span>
+</label>
+<p class="demoNote">This is a college-project payment simulation. No real money will be charged.</p>
+</div>
+
+<button class="btn full" type="submit">Pay & Confirm Appointment</button>
+<p id="bookMsg" class="msg"></p>
+</form>
+</section>
+</main>
+
+<footer><div class="copyright">© 2026 DocType. College Mini Project.</div></footer>
+
+<!-- Payment simulation modal -->
+<div id="paymentModal" class="modal hidden">
+<div class="modalCard">
+<button id="closePayment" class="modalClose" type="button">×</button>
+<div class="paymentIcon">🔐</div>
+<h2>Secure Online Payment</h2>
+<p id="modalPaymentText">Complete the demo payment to confirm your appointment.</p>
+
+<div id="upiFields" class="paymentFields">
+<label>UPI ID<input id="upiId" placeholder="example@upi"></label>
+</div>
+
+<div id="cardFields" class="paymentFields hidden">
+<label>Card number<input id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456"></label>
+<div class="twoCol">
+<label>Expiry<input id="expiry" maxlength="5" placeholder="MM/YY"></label>
+<label>CVV<input id="cvv" maxlength="3" type="password" placeholder="123"></label>
+</div>
+</div>
+
+<div id="demoFields" class="paymentFields hidden">
+<div class="demoPayment">✓ Demo gateway ready</div>
+</div>
+
+<button id="payNow" class="btn full" type="button">Pay Now</button>
+<p id="paymentMsg" class="msg"></p>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
